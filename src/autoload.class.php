@@ -84,12 +84,12 @@ class Autoload
 
 		$updates = get_site_transient('update_plugins');
 
-		if (isset($updates->response['umbrella-antivirus-hack-protection/init.php']))
-		{
+		if (isset($updates->response['umbrella-antivirus-hack-protection/init.php'])) {
 			$latest_version = $updates->response['umbrella-antivirus-hack-protection/init.php']->new_version;
 		}
-		else
+		else {
 			$latest_version = UMBRELLA__VERSION;
+		}
 
 		return $latest_version;
 	}
@@ -126,9 +126,7 @@ class Autoload
 	public function filter_auto_update_plugin( $update, $item ) {
 
 		// Array of plugin slugs to always auto-update
-	    $plugins = array (
-	        'umbrella-antivirus-hack-protection'
-	    );
+	    $plugins = array( 'umbrella-antivirus-hack-protection' );
 
 	    if ( in_array( $item->slug, $plugins ) ) {
 	        return true; // Always update plugins in this array
@@ -224,9 +222,10 @@ class Autoload
 	 * @return N/A
 	*/
 	public function admin_init() {
-
-		//register our settings
-		register_setting( 'umbrella-settings', 'umbrella_load_modules', array('Umbrella\Modules', 'validate_modules') );
+		register_setting(
+			'umbrella-settings', 'umbrella_load_modules',
+			array( 'Umbrella\Modules', 'validate_modules' )
+		);
 	}
 
 	/**
