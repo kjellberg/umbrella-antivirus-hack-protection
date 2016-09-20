@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 Umbrella\Controller::header($data); ?>
 
@@ -92,20 +92,20 @@ Umbrella\Controller::header($data); ?>
 </div>
 
 <div style="width: 70%; float:left;">
-	
+
 	<h3 style="clear:both;"><?php _e('Settings', UMBRELLA__TEXTDOMAIN); ?></h3>
 	<p>
-		<?php _e('This plugin does nothing by default, and that\'s because we want you to know whats happening behind the scenes. 
-		With that said, please choose wich modules and settings you want to use with Umbrella. Even if nothing is loaded by default, 
+		<?php _e('This plugin does nothing by default, and that\'s because we want you to know whats happening behind the scenes.
+		With that said, please choose wich modules and settings you want to use with Umbrella. Even if nothing is loaded by default,
 		we recommend you to activate them all for best protection.', UMBRELLA__TEXTDOMAIN); ?>
 	</p>
-	
+
 	<h4 style="clear:both;"><?php _e('Enable/disable settings', UMBRELLA__TEXTDOMAIN); ?></h4>
 	<form method="post" action="options.php">
 
-	    <?php 
-	    	settings_fields( 'umbrella-settings' ); 
-	     	do_settings_sections( 'umbrella-settings' ); 
+	    <?php
+	    	settings_fields( 'umbrella-settings' );
+	     	do_settings_sections( 'umbrella-settings' );
 	     	$load_modules = get_option( 'umbrella_load_modules' );
 	 	?>
 
@@ -126,8 +126,8 @@ Umbrella\Controller::header($data); ?>
 
 			<tbody id="the-list">
 
-				<?php 
-				// Modules 
+				<?php
+				// Modules
 				foreach($available_options as $opt): ?>
 					<tr class="alternate <?php
 
@@ -138,16 +138,16 @@ Umbrella\Controller::header($data); ?>
 
 					?>">
 						<th scope="col" id="cb" class="manage-column column-cb check-column" style="">
-							<input name="umbrella_load_modules[<?php echo $opt[0]; ?>]" type="checkbox" value="1" 
+							<input name="umbrella_load_modules[<?php echo $opt[0]; ?>]" type="checkbox" value="1"
 							<?php checked( isset( $load_modules[$opt[0]] ) ); ?> />
 						</th>
 						<td class="settings-name"><?php echo $opt[1]; ?></td>
 						<td><?php echo $opt[2]; ?></td>
-					</tr>	
-				<?php 
-				endforeach; 
+					</tr>
+				<?php
+				endforeach;
 				// End Modules
-				?>			
+				?>
 			</tbody>
 		</table>
 	    <br>
@@ -157,23 +157,6 @@ Umbrella\Controller::header($data); ?>
 
 <div style="clear:both;"></div>
 <br><hr>
-
-<?php if(!defined('umbrella_sp_pro')): ?>
-
-	<div style="float:right;width:74%;">
-	<br>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Umbrella Plugin Dashboard -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:728px;height:90px"
-		     data-ad-client="ca-pub-3552894980397547"
-		     data-ad-slot="9268741798"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-	</div>
-
-<?php endif; ?>
 
 <div style="float:left;width: 24%;">
 	<h3><?php _e('Automatic Plugin Updates.', UMBRELLA__TEXTDOMAIN); ?></h3>

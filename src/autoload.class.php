@@ -182,12 +182,13 @@ class Autoload
 
 		$logs = Log::counter();
 
-		// Version updates
-		if (defined('UMBRELLA_SP_UPDATE_AVAILABLE')):
-
-			if (!isset($_GET['action'])) {
-				$update_file = 'umbrella-antivirus-hack-protection/init.php';
-				$url = wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=' . $update_file), 'upgrade-plugin_' . $update_file);
+		// Version updates.
+		if (defined('UMBRELLA_SP_UPDATE_AVAILABLE') AND !isset($_GET['action'])) {
+			$update_file = 'umbrella-antivirus-hack-protection/init.php';
+			$url = wp_nonce_url(
+					self_admin_url( 'update.php?action=upgrade-plugin&plugin=' . $update_file ),
+					'upgrade-plugin_' . $update_file
+				);
 		?>
 	 	<div class="error umbrella">
 	     	<a href="<?php echo esc_url($url); ?>" class="button button-primary" style="float:right;margin-top: 3px;"><?php _e( 'Update Now', UMBRELLA__TEXTDOMAIN ); ?></a>
@@ -197,10 +198,9 @@ class Autoload
 	    	</p>
 	    </div>
 		<?php
-			}
-		endif;
+		}
 
-		// Log entries
+		// Log entries.
 		if ($logs > 0 AND get_option('umbrella_sp_disable_notices') != 1):
 		?>
 	    <div class="error umbrella">
