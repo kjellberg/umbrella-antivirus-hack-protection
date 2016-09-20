@@ -12,8 +12,8 @@ class Backup
 
 		// Create URL and DIR paths to new file.
 		$dump_file_name = self::generateUniqueFileName('mysqldump-', 'sql');
-		$dump_path = UMBRElLA__STORAGE_DIR . $dump_file_name;
-		$dump_url = UMBRElLA__STORAGE_URL . $dump_file_name;
+		$dump_path = UMBRELLA__STORAGE_DIR . $dump_file_name;
+		$dump_url = UMBRELLA__STORAGE_URL . $dump_file_name;
 
 		// Connect to database and create the dump.
 		$dump = new \Ifsnop\Mysqldump\Mysqldump( DB_NAME , DB_USER, DB_PASSWORD, DB_HOST );
@@ -24,9 +24,9 @@ class Backup
 	}
 
 	public static function getDatabaseDumps() {
-		$dir = UMBRElLA__STORAGE_DIR;
+		$dir = UMBRELLA__STORAGE_DIR;
 		$output = array();
-		
+
 		// Get all .sql files in datadir.
 		$files = glob($dir . "*.sql");
 
@@ -38,10 +38,10 @@ class Backup
 		foreach ($files as $file) {
 			$input['path'] = $file;
 			$input['filesize'] = self::human_filesize(filesize($file));
-			$input['url'] = str_replace(UMBRElLA__STORAGE_DIR, UMBRElLA__STORAGE_URL, $file);
+			$input['url'] = str_replace(UMBRELLA__STORAGE_DIR, UMBRElLA__STORAGE_URL, $file);
 			$input['md5'] = md5(file_get_contents($file));
 			$input['created_at'] = date ("Y-m-d H:i:s", filemtime($file));
-			$output[] = $input; 
+			$output[] = $input;
 		}
 
 		return $output;

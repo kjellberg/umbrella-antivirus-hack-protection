@@ -35,7 +35,7 @@ class Scanner
     public static function get_db_file() {
         global $wp_version;
         $version = str_replace('.','', $wp_version);
-        return UMBRElLA__STORAGE_DIR . ".database-{$version}.ini";
+        return UMBRELLA__STORAGE_DIR . ".database-{$version}.ini";
     }
 
     /**

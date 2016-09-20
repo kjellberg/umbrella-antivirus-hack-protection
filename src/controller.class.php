@@ -261,7 +261,6 @@ class Controller
 		wp_enqueue_style('umbrella-filescanner-css', UMBRELLA__PLUGIN_URL . 'css/layout.css');
 		wp_enqueue_script('umbrella-sp-js', UMBRELLA__PLUGIN_URL . 'js/siteprotection.js');
 		wp_enqueue_script('jquery-cookie', UMBRELLA__PLUGIN_URL . 'js/jquery.cookie.js', array('jquery'));
-		wp_enqueue_script('umbrella-sp-subscribe', UMBRELLA__PLUGIN_URL . 'js/subscribe.js');
 
 		$path_to_file = UMBRELLA__PLUGIN_DIR . 'views/' . $view . '.view.php';
 

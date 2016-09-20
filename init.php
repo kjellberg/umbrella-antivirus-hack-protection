@@ -10,6 +10,8 @@
  * Domain Path: /languages
  * License: GPL
  * Copyright: Rasmus Kjellberg
+ *
+ * @package UmbrellaAntivirus
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,8 +27,8 @@ define( 'UMBRELLA__PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'UMBRELLA__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'UMBRELLA__PLUGIN_TMPURL', UMBRELLA__PLUGIN_URL . 'data/tmp/' );
 define( 'UMBRELLA__PLUGIN_TMPDIR', UMBRELLA__PLUGIN_DIR . 'data/tmp/' );
-define( 'UMBRElLA__STORAGE_DIR', $up_dir['basedir'] . '/umbrella/' );
-define( 'UMBRElLA__STORAGE_URL', $up_dir['baseurl'] . '/umbrella/' );
+define( 'UMBRELLA__STORAGE_DIR', $up_dir['basedir'] . '/umbrella/' );
+define( 'UMBRELLA__STORAGE_URL', $up_dir['baseurl'] . '/umbrella/' );
 define( 'UMBRELLA__TEXTDOMAIN', 'umbrella-antivirus-hack-protection' );
 
 /**
